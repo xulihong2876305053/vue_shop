@@ -1,18 +1,22 @@
 <template>
-  <div id="app">
+  <div>
     
   </div>
 </template>
-
 <script>
   export default {
-    name: 'app',
+    name: '',
+    data() {
+      return {}
+    },
+    methods: {
+
+    },
     components: {
 
     }
   }
 </script>
-
-<style>
+<style scoped>
 
 </style>
