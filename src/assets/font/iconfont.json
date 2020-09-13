@@ -13,11 +13,81 @@
       "unicode_decimal": 58964
     },
     {
+      "icon_id": "725731",
+      "name": "用户",
+      "font_class": "yonghu",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "925643",
+      "name": "默认头像",
+      "font_class": "morentouxiang",
+      "unicode": "e677",
+      "unicode_decimal": 58999
+    },
+    {
+      "icon_id": "1526274",
+      "name": "锁 1",
+      "font_class": "suo",
+      "unicode": "e657",
+      "unicode_decimal": 58967
+    },
+    {
+      "icon_id": "1727367",
+      "name": "28体积、空间",
+      "font_class": "tijikongjian",
+      "unicode": "e89f",
+      "unicode_decimal": 59551
+    },
+    {
+      "icon_id": "2170514",
+      "name": "用户",
+      "font_class": "yonghu1",
+      "unicode": "e700",
+      "unicode_decimal": 59136
+    },
+    {
+      "icon_id": "2570077",
+      "name": "单据",
+      "font_class": "danju-tianchong",
+      "unicode": "e62a",
+      "unicode_decimal": 58922
+    },
+    {
+      "icon_id": "6282758",
+      "name": "密码显示",
+      "font_class": "mimaxianshi",
+      "unicode": "e6b4",
+      "unicode_decimal": 59060
+    },
+    {
+      "icon_id": "8870953",
+      "name": "系统",
+      "font_class": "xitong",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
+      "icon_id": "10056242",
+      "name": "报表",
+      "font_class": "baobiao",
+      "unicode": "e707",
+      "unicode_decimal": 59143
+    },
+    {
       "icon_id": "11758143",
       "name": "人物",
       "font_class": "renwu",
       "unicode": "e747",
       "unicode_decimal": 59207
+    },
+    {
+      "icon_id": "15023365",
+      "name": "商品",
+      "font_class": "shangpin",
+      "unicode": "e63b",
+      "unicode_decimal": 58939
     }
   ]
 }
