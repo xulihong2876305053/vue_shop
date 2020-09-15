@@ -25,9 +25,10 @@
           <el-tag v-else type="warning" size="mini">三级</el-tag>
         </template>
 
-        <template slot="option">
+        <template slot="option" slot-scope="scope">
           <el-button type="primary" icon="el-icon-edit" size="mini">编辑</el-button>
-          <el-button type="danger" icon="el-icon-delete" size="mini">删除</el-button>
+          <el-button type="danger" icon="el-icon-delete" size="mini" @click="showDelCateDialog(scope.row)">删除
+          </el-button>
         </template>
       </tree-table>
       <!-- 分页 -->
@@ -42,14 +43,14 @@
           <el-input v-model="addCateForm.cat_name" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="父级分类:">
-          <el-cascader size="medium" v-model="selectedKeys" :options="parentCateList" :props="cascadeProps"
-            @change="parentCateChanged" clearable>
+          <el-cascader size="medium" ref="cascader" v-model="selectedKeys" :options="parentCateList"
+            :props="cascadeProps" @change="parentCateChanged" clearable>
           </el-cascader>
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
         <el-button @click="addCateDialogVisible = false">取 消</el-button>
-        <el-button type="primary" @click="addCateDialogVisible = false">确 定</el-button>
+        <el-button type="primary" @click="addCate">确 定</el-button>
       </span>
     </el-dialog>
   </div>
@@ -172,12 +173,61 @@
       },
       //重置添加分类对话框
       addCateDialogClosed() {
+        this.selectedKeys = []
+        this.addCateForm.cat_level = 0
+        this.addCateForm.cat_pid = 0
         this.$refs.addCateFormRef.resetFields();
       },
+      //级联选择变化
       parentCateChanged() {
-
+        if (this.selectedKeys.length > 0) {
+          this.addCateForm.cat_pid = this.selectedKeys[this.selectedKeys.length - 1]
+          this.addCateForm.cat_level = this.selectedKeys.length
+          return
+        } else {
+          this.addCateForm.cat_pid = 0
+          this.addCateForm.cat_level = 0
+        }
+      },
+      //添加分类
+      addCate() {
+        this.$refs.addCateFormRef.validate(async valid => {
+          if (!valid) {
+            return this.$message.error("请填写相关信息!")
+          }
+          const {
+            data: res
+          } = await this.$http.post('categories', this.addCateForm)
+          if (res.meta.status !== 201) {
+            return this.$message.error("添加分类失败!")
+          }
+          this.$message.success("添加分类成功!")
+          //隐藏对话框
+          this.addRoleDialogVisible = false
+          //获取新的角色列表
+          this.getCateList()
+        })
+        this.addCateDialogVisible = false
+      },
+      //删除分类
+      async showDelCateDialog(row) {
+        // console.log(row.cat_id + ' ' + row.cat_pid);
+        const {
+          data: res
+        } = await this.$http.delete(`categories/${row.cat_id}`)
+        if (res.meta.status !== 200)
+          return this.$message.error(res.meta.msg)
+        this.$message.success('删除分类成功!')
+        this.getCateList()
       },
 
+    },
+    watch: {
+      selectedKeys() {
+        if (this.$refs.cascader) {
+          this.$refs.cascader.dropDownVisible = false;
+        }
+      }
     },
     components: {
 
