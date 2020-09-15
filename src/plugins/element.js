@@ -32,7 +32,9 @@ import {
   Cascader,
   Alert,
   Tabs,
-  TabPane
+  TabPane,
+  Step,
+  Steps
 } from 'element-ui'
 
 import '../assets/font/iconfont.css'
@@ -68,6 +70,8 @@ Vue.use(Cascader)
 Vue.use(Alert)
 Vue.use(Tabs)
 Vue.use(TabPane)
+Vue.use(Step)
+Vue.use(Steps)
 
 Vue.prototype.$message = Message
 Vue.prototype.$confirm = MessageBox.confirm
