@@ -301,7 +301,7 @@
           this.getParamsData()
         })
       },
-      //删除参数
+      //删除参数val
       async removeParams(id) {
         const res = await this.$confirm('此操作将删除该参数, 是否继续?', '删除参数', {
           confirmButtonText: '确定',

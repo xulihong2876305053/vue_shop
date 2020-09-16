@@ -34,7 +34,10 @@ import {
   Tabs,
   TabPane,
   Step,
-  Steps
+  Steps,
+  Checkbox,
+  CheckboxGroup,
+  Upload
 } from 'element-ui'
 
 import '../assets/font/iconfont.css'
@@ -72,6 +75,9 @@ Vue.use(Tabs)
 Vue.use(TabPane)
 Vue.use(Step)
 Vue.use(Steps)
+Vue.use(Checkbox)
+Vue.use(CheckboxGroup)
+Vue.use(Upload)
 
 Vue.prototype.$message = Message
 Vue.prototype.$confirm = MessageBox.confirm
